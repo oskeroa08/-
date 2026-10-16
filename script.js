@@ -1,58 +1,85 @@
-// Перед публикацией укажите адрес для приёма заявок. Например: const CONTACT_EMAIL = 'hello@yourdomain.ru';
-const CONTACT_EMAIL = '';
+/* Бизнес-архитектор — script.js
+   Меню, подсветка активного раздела, появление блоков, форма обращения. */
+(() => {
+  'use strict';
 
-// Мобильное меню: раскрываем навигацию и закрываем её после выбора раздела.
-const menuToggle = document.querySelector('.menu-toggle');
-const navigation = document.querySelector('.top-nav');
+  // Перед публикацией укажите адрес для приёма заявок,
+  // например: const CONTACT_EMAIL = 'hello@yourdomain.ru';
+  const CONTACT_EMAIL = '';
 
-if (menuToggle && navigation) {
-  menuToggle.addEventListener('click', () => {
-    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', String(!isOpen));
-    navigation.classList.toggle('open', !isOpen);
-  });
+  /* ---------- Мобильное меню ---------- */
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('.top-nav');
 
-  navigation.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      navigation.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
+  if (menuToggle && navigation) {
+    const setOpen = (open) => {
+      menuToggle.setAttribute('aria-expanded', String(open));
+      navigation.classList.toggle('open', open);
+    };
+
+    menuToggle.addEventListener('click', () => {
+      setOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
     });
-  });
-}
 
-// Плавно показываем блоки при прокрутке. При отсутствии IntersectionObserver показываем всё сразу.
-const observedSections = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+    navigation.addEventListener('click', (event) => {
+      if (event.target.closest('a')) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    });
+  }
+
+  /* ---------- Появление блоков при прокрутке ---------- */
+  const revealables = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
       }
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealables.forEach((el) => revealObserver.observe(el));
+  } else {
+    revealables.forEach((el) => el.classList.add('is-visible'));
+  }
+
+  /* ---------- Подсветка раздела в навигации (scrollspy) ---------- */
+  const spyLinks = Array.from(document.querySelectorAll('.top-nav a[data-spy]'));
+  const spyTargets = spyLinks
+    .map((link) => document.getElementById(link.dataset.spy))
+    .filter(Boolean);
+
+  if (spyLinks.length && 'IntersectionObserver' in window) {
+    const setActive = (id) => {
+      spyLinks.forEach((link) => link.classList.toggle('active', link.dataset.spy === id));
+    };
+
+    const spyObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.25, 0.5] });
+
+    spyTargets.forEach((section) => spyObserver.observe(section));
+    spyLinks.forEach((link) => {
+      link.addEventListener('click', () => setActive(link.dataset.spy));
     });
-  }, { threshold: 0.08 });
-  observedSections.forEach((section) => revealObserver.observe(section));
-} else {
-  observedSections.forEach((section) => section.classList.add('is-visible'));
-}
+  }
 
-// Подсвечиваем пункт меню, соответствующий выбранному разделу.
-document.querySelectorAll('.top-nav a').forEach((link) => {
-  link.addEventListener('click', () => {
-    document.querySelectorAll('.top-nav a').forEach((item) => item.classList.remove('active'));
-    link.classList.add('active');
-  });
-});
+  /* ---------- Год в подвале ---------- */
+  const year = document.getElementById('year');
+  if (year) year.textContent = String(new Date().getFullYear());
 
-// Автоматически обновляем год в подвале.
-const year = document.getElementById('year');
-if (year) year.textContent = new Date().getFullYear();
+  /* ---------- Форма обращения ---------- */
+  const contactForm = document.getElementById('contact-form');
+  const formNote = document.getElementById('form-note');
 
-// Проверка формы обратной связи до попытки отправить или скопировать обращение.
-const contactForm = document.getElementById('contact-form');
-const formNote = document.getElementById('form-note');
+  if (!contactForm) return;
 
-if (contactForm) {
   const fields = {
     name: {
       input: contactForm.elements.namedItem('name'),
@@ -67,26 +94,25 @@ if (contactForm) {
       error: document.getElementById('message-error'),
     },
   };
+  const fieldNames = Object.keys(fields);
 
-  // Проверяем e-mail или Telegram username / ссылку t.me.
-  function isValidReplyTo(value) {
+  // E-mail, Telegram-username или ссылка t.me.
+  const isValidReplyTo = (value) => {
     const trimmed = value.trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    const telegramPattern = /^@?[a-zA-Z0-9_]{5,32}$/;
-    const telegramUrlPattern = /^(https?:\/\/)?(www\.)?t\.me\/[a-zA-Z0-9_]{5,32}\/?$/i;
+    return (
+      /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed) ||
+      /^@?[a-zA-Z0-9_]{5,32}$/.test(trimmed) ||
+      /^(https?:\/\/)?(www\.)?t\.me\/[a-zA-Z0-9_]{5,32}\/?$/i.test(trimmed)
+    );
+  };
 
-    return emailPattern.test(trimmed) || telegramPattern.test(trimmed) || telegramUrlPattern.test(trimmed);
-  }
-
-  // Показываем ошибку у поля и помечаем его состояние для скринридеров.
-  function setFieldError(field, message) {
-    field.error.textContent = message;
+  const setFieldError = (field, message) => {
+    if (field.error) field.error.textContent = message;
     field.input.setAttribute('aria-invalid', message ? 'true' : 'false');
     field.input.classList.toggle('has-error', Boolean(message));
-  }
+  };
 
-  // Проверка конкретного поля вызывается и при отправке, и при исправлении значения.
-  function validateField(fieldName) {
+  const validateField = (fieldName) => {
     const field = fields[fieldName];
     const value = field.input.value.trim();
     let error = '';
@@ -105,57 +131,60 @@ if (contactForm) {
 
     setFieldError(field, error);
     return !error;
+  };
+
+  // Ошибка снимается сразу при исправлении поля.
+  for (const fieldName of fieldNames) {
+    const field = fields[fieldName];
+    field.input.addEventListener('input', () => {
+      if (field.input.getAttribute('aria-invalid') === 'true') validateField(fieldName);
+    });
+    field.input.addEventListener('blur', () => {
+      if (field.input.value.trim()) validateField(fieldName);
+    });
   }
 
-  // Убираем сообщение об ошибке сразу после исправления поля, не дожидаясь следующей отправки.
-  Object.keys(fields).forEach((fieldName) => {
-    fields[fieldName].input.addEventListener('input', () => {
-      if (fields[fieldName].input.getAttribute('aria-invalid') === 'true') {
-        validateField(fieldName);
-      }
-    });
-    fields[fieldName].input.addEventListener('blur', () => {
-      if (fields[fieldName].input.value.trim()) validateField(fieldName);
-    });
-  });
+  const setNote = (text) => {
+    if (formNote) formNote.textContent = text;
+  };
 
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    // Проверяем все поля, затем переводим фокус на первое некорректное.
-    const fieldNames = Object.keys(fields);
     const isFormValid = fieldNames.map(validateField).every(Boolean);
     if (!isFormValid) {
-      const firstInvalid = fieldNames.map((name) => fields[name]).find((field) => field.input.getAttribute('aria-invalid') === 'true');
+      const firstInvalid = fieldNames
+        .map((name) => fields[name])
+        .find((field) => field.input.getAttribute('aria-invalid') === 'true');
       if (firstInvalid) firstInvalid.input.focus();
-      if (formNote) formNote.textContent = 'Проверьте отмеченные поля и попробуйте ещё раз.';
+      setNote('Проверьте отмеченные поля и попробуйте ещё раз.');
       return;
     }
 
-    const formData = new FormData(contactForm);
-    const name = String(formData.get('name') || '').trim();
-    const replyTo = String(formData.get('contact') || '').trim();
-    const message = String(formData.get('message') || '').trim();
-    const subject = encodeURIComponent('Запрос на обсуждение бизнес-задачи');
-    const body = encodeURIComponent(`Имя: ${name}\nКонтакт для ответа: ${replyTo}\n\nЗадача:\n${message}`);
+    const data = new FormData(contactForm);
+    const name = String(data.get('name') || '').trim();
+    const replyTo = String(data.get('contact') || '').trim();
+    const message = String(data.get('message') || '').trim();
 
     if (CONTACT_EMAIL.trim()) {
-      if (formNote) formNote.textContent = 'Открываем почтовое приложение для отправки обращения.';
+      const subject = encodeURIComponent('Запрос на обсуждение бизнес-задачи');
+      const body = encodeURIComponent(`Имя: ${name}\nКонтакт для ответа: ${replyTo}\n\nЗадача:\n${message}`);
+      setNote('Открываем почтовое приложение для отправки обращения.');
       window.location.href = `mailto:${CONTACT_EMAIL.trim()}?subject=${subject}&body=${body}`;
       return;
     }
 
-    // Пока адрес получателя не настроен, готовим обращение и копируем его в буфер обмена.
+    // Пока адрес получателя не настроен — копируем обращение в буфер обмена.
     const inquiry = `Запрос на обсуждение бизнес-задачи\n\nИмя: ${name}\nКонтакт для ответа: ${replyTo}\n\nЗадача:\n${message}`;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       try {
         await navigator.clipboard.writeText(inquiry);
-        if (formNote) formNote.textContent = 'Текст обращения скопирован. Для отправки по почте укажите CONTACT_EMAIL в script.js.';
-      } catch (error) {
-        if (formNote) formNote.textContent = 'Не удалось скопировать автоматически. Укажите CONTACT_EMAIL в script.js или подключите форму к CRM.';
+        setNote('Текст обращения скопирован. Для отправки по почте укажите CONTACT_EMAIL в script.js.');
+      } catch {
+        setNote('Не удалось скопировать автоматически. Укажите CONTACT_EMAIL в script.js или подключите форму к CRM.');
       }
     } else {
-      if (formNote) formNote.textContent = 'Буфер обмена недоступен. Укажите CONTACT_EMAIL в script.js или подключите форму к CRM.';
+      setNote('Буфер обмена недоступен. Укажите CONTACT_EMAIL в script.js или подключите форму к CRM.');
     }
   });
-}
+})();

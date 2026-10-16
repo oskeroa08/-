@@ -4,34 +4,44 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f5ef">
-  <meta name="description" content="Бизнес-архитектор. Диагностика бизнеса, проектирование организационных моделей и сопровождение реализации решений.">
   <title>Бизнес-архитектор — стратегия, система, результат</title>
+  <meta name="description" content="Бизнес-архитектор. Диагностика бизнеса, проектирование организационных моделей и сопровождение реализации решений.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Бизнес-архитектор — стратегия, система, результат">
+  <meta property="og:description" content="Превращаю сложное и разрозненное в целостную работающую систему: диагностика, проектирование решений, сопровождение реализации.">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="assets/portrait-wide.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23344e46'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' fill='%23b5a071' text-anchor='middle'%3E%D0%91%D0%90.%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main>
+    <!-- ============ ГЛАВНЫЙ ЭКРАН ============ -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-portrait">
-        <img src="assets/portrait.jpg" alt="Портрет бизнес-архитектора в светлом жакете" fetchpriority="high">
+        <picture>
+          <source media="(max-width: 800px)" srcset="assets/portrait-wide.jpg">
+          <img src="assets/portrait-tall.jpg" alt="Портрет бизнес-архитектора в светлом жакете" width="595" height="1081" fetchpriority="high" decoding="async">
+        </picture>
         <svg class="portrait-line" viewBox="0 0 250 300" aria-hidden="true"><path d="M-35 300 C 25 220, 30 85, 155 -25" /></svg>
       </div>
       <div class="hero-panel">
         <header class="hero-header">
           <a class="wordmark" href="#top" aria-label="На главную">БА<span>.</span></a>
-          <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
           <nav class="top-nav" id="main-nav" aria-label="Основная навигация">
-            <a class="active" href="#approach">Стратегия</a><i>•</i>
-            <a href="#services">Система</a><i>•</i>
-            <a href="#cases">Результат</a>
+            <a class="active" data-spy="approach" href="#approach">Стратегия</a><i>•</i>
+            <a data-spy="services" href="#services">Система</a><i>•</i>
+            <a data-spy="cases" href="#cases">Результат</a>
           </nav>
+          <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
         </header>
         <div class="hero-content">
           <p class="eyebrow">Бизнес-архитектор</p>
-          <span class="gold-rule"></span>
-          <h1 id="hero-title">Превращаю сложное и разрозненное в целостную работающую систему.</h1>
+          <span class="gold-rule" aria-hidden="true"></span>
+          <h1 id="hero-title">Превращаю сложное и разрозненное&nbsp;в целостную работающую систему.</h1>
           <p class="hero-description">Вижу бизнес целиком, нахожу взаимосвязи и проектирую решения, которые помогают достигать целей и развивать бизнес.</p>
           <div class="hero-facts" aria-label="Опыт и специализация">
             <div class="experience fact">
@@ -39,31 +49,35 @@
               <span>в управлении<br>и развитии бизнеса</span>
             </div>
             <div class="fact icon-fact">
-              <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><circle cx="24" cy="24" r="13"/><path d="m19 29 5-14 5 14-5-3zM24 8v4M24 36v4M8 24h4M36 24h4"/></svg></span>
+              <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></span>
               <span>Стратегия<br>и развитие бизнеса</span>
             </div>
             <div class="fact icon-fact">
-              <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><path d="M12 33h6V25h-6zM22 33h6V19h-6zM32 33h5V13h-5zM12 17l8-5 7 4 9-8M31 8h5v5"/></svg></span>
+              <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 19.5h15"/><path d="M7.5 16.5v-5M12 16.5V6.5M16.5 16.5v-8"/></svg></span>
               <span>Коммерция<br>и продажи</span>
             </div>
             <div class="fact icon-fact">
-              <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><circle cx="24" cy="18" r="5"/><circle cx="13" cy="20" r="3.5"/><circle cx="35" cy="20" r="3.5"/><path d="M14 34v-3c0-5 4-8 10-8s10 3 10 8v3M6.5 32v-2c0-3 2-5 5-5M41.5 32v-2c0-3-2-5-5-5"/></svg></span>
+              <span class="icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="16.8" cy="9" r="2.4"/><path d="M16.5 14.5c2.6 0 4.3 1.7 4.3 4.5"/></svg></span>
               <span>Системы управления<br>и развитие команд</span>
             </div>
           </div>
-          <div class="hero-education"><svg viewBox="0 0 42 36" aria-hidden="true"><path d="m3 12 18-9 18 9-18 9zM9 16v10c7 6 17 6 24 0V16M38 13v11"/><circle cx="38" cy="27" r="2"/></svg><span>Executive MBA Сколково</span><b>•</b><span>8 лет преподавания в вузах</span></div>
+          <div class="hero-education">
+            <svg viewBox="0 0 42 36" aria-hidden="true"><path d="m3 12 18-9 18 9-18 9zM9 16v10c7 6 17 6 24 0V16M38 13v11"/><circle cx="38" cy="27" r="2"/></svg>
+            <span>Executive MBA Сколково</span><b>•</b><span>8 лет преподавания в вузах</span>
+          </div>
         </div>
         <svg class="hero-bottom-line" viewBox="0 0 470 250" preserveAspectRatio="none" aria-hidden="true"><path d="M470 20 C 425 70, 430 105, 350 140 S 205 195, 100 220 S 20 245, -10 252"/></svg>
       </div>
       <a class="scroll-cue" href="#approach" aria-label="Прокрутить к следующему разделу"><span></span></a>
     </section>
 
+    <!-- ============ 01 / КОНТЕКСТ ============ -->
     <section class="section approach" id="approach">
       <div class="section-wrap approach-grid">
         <div class="section-intro reveal">
           <p class="section-kicker">01 / Контекст</p>
           <h2>Иногда проблема выглядит не так, какова её настоящая причина</h2>
-          <span class="gold-rule"></span>
+          <span class="gold-rule" aria-hidden="true"></span>
         </div>
         <div class="approach-copy reveal">
           <p class="lead">В бизнесе отдельные сложности редко существуют сами по себе.</p>
@@ -82,6 +96,7 @@
       </div>
     </section>
 
+    <!-- ============ 02 / УСЛУГИ ============ -->
     <section class="section services" id="services">
       <div class="section-wrap">
         <div class="section-heading reveal">
@@ -91,7 +106,10 @@
         </div>
         <div class="service-grid">
           <article class="service-card reveal">
-            <div class="card-top"><span class="card-number">01</span><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="20"/><path d="M16 32 23 17l13-5-5 13-15 7zM23 17l8 8M13 39l5-5M35 12l5-5"/></svg></div>
+            <div class="card-top">
+              <span class="card-number">01</span>
+              <svg viewBox="0 0 52 52" aria-hidden="true"><rect x="6" y="5" width="26" height="32" rx="2"/><path d="M12 13h14M12 19h14M12 25h9"/><circle cx="31" cy="32" r="9"/><path d="m24.5 38.5-4.5 4.5"/></svg>
+            </div>
             <h3>Диагностика бизнеса или задачи</h3>
             <p>Помогаю понять, что происходит в действительности, почему возникла проблема и какие взаимосвязи важно учитывать перед принятием решения.</p>
             <div class="deliverable"><span>На выходе</span><p>Структурированная картина ситуации, ключевые выводы, возможные направления действий и рекомендации по следующим шагам.</p></div>
@@ -99,7 +117,10 @@
             <a class="text-link" href="#contact">Обсудить задачу <span>↗</span></a>
           </article>
           <article class="service-card featured reveal">
-            <div class="card-top"><span class="card-number">02</span><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="20"/><rect x="15" y="15" width="22" height="22" rx="1"/><path d="M15 22h22M22 22v15M30 22v7h7M20 15v-5M32 15v-5M20 37v5M32 37v5"/></svg></div>
+            <div class="card-top">
+              <span class="card-number">02</span>
+              <svg viewBox="0 0 52 52" aria-hidden="true"><rect x="7" y="7" width="38" height="38" rx="1.5"/><path d="M7 19.5h38M19.5 7v38"/><circle cx="13" cy="13" r="1.8" fill="currentColor" stroke="none"/><circle cx="38.8" cy="38.8" r="1.8" fill="currentColor" stroke="none"/></svg>
+            </div>
             <h3>Проектирование бизнес-решения</h3>
             <p>Разрабатываю целевую модель под конкретный контекст компании: от общей концепции до детально проработанной схемы, с которой можно переходить к реализации.</p>
             <div class="deliverable"><span>На выходе</span><p>Архитектура решения, логика его работы, необходимые изменения и материалы для передачи команде внедрения.</p></div>
@@ -107,7 +128,10 @@
             <a class="text-link" href="#contact">Обсудить задачу <span>↗</span></a>
           </article>
           <article class="service-card reveal">
-            <div class="card-top"><span class="card-number">03</span><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="20"/><path d="M15 27l7 7 15-17M27 12h10v10"/></svg></div>
+            <div class="card-top">
+              <span class="card-number">03</span>
+              <svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="19"/><path d="m17 26.5 6 6 12-13"/></svg>
+            </div>
             <h3>Сопровождение реализации</h3>
             <p>Подключаюсь к реализации разработанного решения: помогаю команде удерживать исходную логику, разбирать вопросы и корректировать подход при появлении новых вводных.</p>
             <div class="deliverable"><span>Формат</span><p>Отдельная договорённость с определёнными задачами, сроками, ролями и границами ответственности.</p></div>
@@ -119,13 +143,14 @@
       </div>
     </section>
 
+    <!-- ============ 03 / ПОДХОД ============ -->
     <section class="section process" id="process">
       <div class="section-wrap process-layout">
         <div class="process-intro reveal">
           <p class="section-kicker">03 / Подход</p>
           <h2>Сначала разобраться —<br><em>потом предлагать решение</em></h2>
           <p>Не начинаю с готового шаблона. Сначала выясняю, как устроена конкретная ситуация, какие ограничения существуют и какого результата действительно нужно достичь.</p>
-          <div class="principle"><span class="principle-mark">“</span><p>Решение должно быть не только логически обоснованным, но и реализуемым в конкретной компании.</p></div>
+          <div class="principle"><span class="principle-mark" aria-hidden="true">“</span><p>Решение должно быть не только логически обоснованным, но и реализуемым в конкретной компании.</p></div>
         </div>
         <div class="timeline reveal">
           <article class="timeline-step"><span class="timeline-number">01</span><div><h3>Разбираюсь в запросе</h3><p>Обсуждаем задачу, исходную ситуацию, ожидания и ограничения. Определяем, какой вопрос нужно решить на самом деле.</p></div></article>
@@ -137,6 +162,7 @@
       </div>
     </section>
 
+    <!-- ============ 04 / ПРАКТИКА ============ -->
     <section class="section cases" id="cases">
       <div class="section-wrap">
         <div class="section-heading cases-heading reveal">
@@ -144,35 +170,193 @@
           <h2>Решения для реальных<br><em>бизнес-задач</em></h2>
           <p class="section-deck">Примеры проектной работы: исходная ситуация, логика решения и достигнутый или предполагаемый результат.</p>
         </div>
+
         <article class="case case-one reveal">
-          <div class="case-aside"><span class="case-index">Кейс 01</span><div class="case-tags"><span>Организация</span><span>Процессы</span><span>CRM</span></div><div class="case-visual org-visual" aria-hidden="true"><div class="org-node node-a">Входящие<br>обращения</div><div class="org-lines"><i></i><i></i></div><div class="org-row"><div class="org-node">Новые<br>клиенты</div><div class="org-node">Действующая<br>база</div></div><p>Понятные роли · единые правила · данные для решений</p></div></div>
-          <div class="case-body"><h3>Когда проблема не в системе, а в том, как организована работа</h3><div class="case-part"><h4>Исходная ситуация</h4><p>Руководство считало, что сотрудники саботируют CRM. Рассматривались замена системы и увеличение команды на два-три человека.</p></div><div class="case-part"><h4>Что обнаружилось</h4><p>Пять менеджеров одновременно занимались привлечением новых клиентов и работой с действующими. Разные типы задач конкурировали за время, роли пересекались, а ответственность была размыта.</p></div><div class="case-part"><h4>Что было предложено</h4><p>Перестроить распределение функций без увеличения численности команды: администратор принимает обращения и выявляет потребность; два менеджера работают с потенциальными клиентами; ещё два сопровождают и развивают действующую клиентскую базу. Дополнительно закрепить роли и критерии результата, отразить логику работы в CRM и структурировать базу.</p></div><div class="case-result"><span>Результат / ожидаемый эффект</span><p>Более понятное распределение ответственности, меньше организационного хаоса, прозрачнее управление работой команды и доступность данных для решений. Количественный рост продаж не заявляется.</p></div></div>
+          <div class="case-aside">
+            <span class="case-index">Кейс 01</span>
+            <div class="case-tags"><span>Организация</span><span>Процессы</span><span>CRM</span></div>
+            <div class="case-visual" aria-hidden="true">
+              <svg class="dgm" viewBox="0 0 360 250" role="img">
+                <g class="dgm-lines">
+                  <path d="M180 46v40"/>
+                  <path d="M180 132v24M92 156h176M92 156v24M268 156v24"/>
+                </g>
+                <g class="dgm-box dgm-box-accent">
+                  <rect x="105" y="12" width="150" height="34" rx="3"/>
+                  <text x="180" y="33" text-anchor="middle">Входящие обращения</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="70" y="86" width="220" height="46" rx="3"/>
+                  <text x="180" y="103" text-anchor="middle" class="dgm-strong">Администратор</text>
+                  <text x="180" y="120" text-anchor="middle" class="dgm-sub">приём · выявление потребности</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="16" y="180" width="152" height="46" rx="3"/>
+                  <text x="92" y="199" text-anchor="middle" class="dgm-strong">2 менеджера</text>
+                  <text x="92" y="216" text-anchor="middle" class="dgm-sub">новые клиенты</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="192" y="180" width="152" height="46" rx="3"/>
+                  <text x="268" y="199" text-anchor="middle" class="dgm-strong">2 менеджера</text>
+                  <text x="268" y="216" text-anchor="middle" class="dgm-sub">действующая база</text>
+                </g>
+              </svg>
+              <p>Понятные роли · единые правила · данные для решений</p>
+            </div>
+          </div>
+          <div class="case-body">
+            <h3>Когда проблема не в системе, а в том, как организована работа</h3>
+            <div class="case-part"><h4>Исходная ситуация</h4><p>Руководство считало, что сотрудники саботируют CRM. Рассматривались замена системы и увеличение команды на два-три человека.</p></div>
+            <div class="case-part"><h4>Что обнаружилось</h4><p>Пять менеджеров одновременно занимались привлечением новых клиентов и работой с действующими. Разные типы задач конкурировали за время, роли пересекались, а ответственность была размыта.</p></div>
+            <div class="case-part"><h4>Что было предложено</h4><p>Перестроить распределение функций без увеличения численности команды: администратор принимает обращения и выявляет потребность; два менеджера работают с потенциальными клиентами; ещё два сопровождают и развивают действующую клиентскую базу. Дополнительно закрепить роли и критерии результата, отразить логику работы в CRM и структурировать базу.</p></div>
+            <div class="case-result"><span>Результат / ожидаемый эффект</span><p>Более понятное распределение ответственности, меньше организационного хаоса, прозрачнее управление работой команды и доступность данных для решений. Количественный рост продаж не заявляется.</p></div>
+          </div>
         </article>
+
         <article class="case case-two reveal">
-          <div class="case-aside"><span class="case-index">Кейс 02</span><div class="case-tags"><span>Корпоративное обучение</span><span>Масштабирование</span></div><div class="learning-visual" aria-hidden="true"><div class="learning-cover"><span>SURA</span><i></i><i></i><i></i><small>СИСТЕМА ОБУЧЕНИЯ ПАРТНЁРОВ</small></div><div class="learning-orbit orbit-1"></div><div class="learning-orbit orbit-2"></div><div class="learning-dot dot-1"></div><div class="learning-dot dot-2"></div><div class="learning-dot dot-3"></div></div><div class="case-metrics"><div><strong>3 000+</strong><span>человек обучено<br>за первый год</span></div><div><strong>×2</strong><span>рост клиентской<br>базы B2B</span></div><div><strong>×2,5</strong><span>рост среднего<br>чека</span></div></div></div>
-          <div class="case-body"><h3>Обучение партнёров, которое не зависит от времени бизнес-тренера</h3><div class="case-part"><h4>Исходная задача</h4><p>Создать систему обучения дилеров, которая позволяет партнёрам самостоятельно обучать сотрудников от лица производителя и объяснять сложный продукт языком продаж.</p></div><div class="case-part"><h4>Решение</h4><p>Разработана структура онлайн-обучения, объединяющая материалы о продукте, инструменты продаж, видеоуроки, рабочую тетрадь, практические кейсы, домашние задания и обратную связь.</p></div><div class="case-result"><span>Результаты из проектной презентации</span><p>Указаны 3 000+ обученных человек за первый год, рост клиентской базы B2B в два раза и рост среднего чека в 2,5 раза. Период измерения и связь показателей с внедрённой системой требуют подтверждения перед публикацией.</p></div></div>
+          <div class="case-aside">
+            <span class="case-index">Кейс 02</span>
+            <div class="case-tags"><span>Корпоративное обучение</span><span>Масштабирование</span></div>
+            <div class="case-visual" aria-hidden="true">
+              <svg class="dgm" viewBox="0 0 360 260" role="img">
+                <g class="dgm-lines">
+                  <path d="M126 37 180 130M234 37 180 130"/>
+                  <path d="M126 130h54M234 130h-54"/>
+                  <path d="M126 223 180 130M234 223 180 130"/>
+                </g>
+                <g class="dgm-hub">
+                  <circle cx="180" cy="130" r="54"/>
+                  <text x="180" y="118" text-anchor="middle" class="dgm-hub-title">SURA</text>
+                  <text x="180" y="142" text-anchor="middle" class="dgm-hub-sub">система</text>
+                  <text x="180" y="158" text-anchor="middle" class="dgm-hub-sub">обучения</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="8" y="22" width="118" height="30" rx="15"/>
+                  <text x="67" y="41" text-anchor="middle">Материалы о продукте</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="8" y="115" width="118" height="30" rx="15"/>
+                  <text x="67" y="134" text-anchor="middle">Видеоуроки</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="8" y="208" width="118" height="30" rx="15"/>
+                  <text x="67" y="227" text-anchor="middle">Рабочая тетрадь</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="234" y="22" width="118" height="30" rx="15"/>
+                  <text x="293" y="41" text-anchor="middle">Инструменты продаж</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="234" y="115" width="118" height="30" rx="15"/>
+                  <text x="293" y="134" text-anchor="middle">Практические кейсы</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="234" y="208" width="118" height="30" rx="15"/>
+                  <text x="293" y="227" text-anchor="middle">Домашние задания</text>
+                </g>
+              </svg>
+              <p>Самостоятельное обучение партнёров · обратная связь по каждому блоку</p>
+            </div>
+            <div class="case-metrics">
+              <div><strong>3 000+</strong><span>человек обучено<br>за первый год</span></div>
+              <div><strong>×2</strong><span>рост клиентской<br>базы B2B</span></div>
+              <div><strong>×2,5</strong><span>рост среднего<br>чека</span></div>
+            </div>
+          </div>
+          <div class="case-body">
+            <h3>Обучение партнёров, которое не зависит от времени бизнес-тренера</h3>
+            <div class="case-part"><h4>Исходная задача</h4><p>Создать систему обучения дилеров, которая позволяет партнёрам самостоятельно обучать сотрудников от лица производителя и объяснять сложный продукт языком продаж.</p></div>
+            <div class="case-part"><h4>Решение</h4><p>Разработана структура онлайн-обучения, объединяющая материалы о продукте, инструменты продаж, видеоуроки, рабочую тетрадь, практические кейсы, домашние задания и обратную связь.</p></div>
+            <div class="case-result"><span>Результаты из проектной презентации</span><p>Указаны 3 000+ обученных человек за первый год, рост клиентской базы B2B в два раза и рост среднего чека в 2,5 раза. Период измерения и связь показателей с внедрённой системой требуют подтверждения перед публикацией.</p></div>
+          </div>
         </article>
+
         <article class="case case-three reveal">
-          <div class="case-aside"><span class="case-index">Кейс 03</span><div class="case-tags"><span>Оргдизайн</span><span>Каналы продаж</span><span>Финансовая модель</span></div><div class="channels-visual" aria-hidden="true"><div class="channels-center">Единая<br>модель</div><div class="channels-line cl-1"></div><div class="channels-line cl-2"></div><div class="channels-line cl-3"></div><div class="channel-box cb-1">Маркетплейсы</div><div class="channel-box cb-2">B2B</div><div class="channel-box cb-3">Корпоративные<br>клиенты и сети</div></div></div>
-          <div class="case-body"><h3>Пересобрать структуру вокруг клиентов и каналов продаж</h3><div class="case-part"><h4>Исходная ситуация</h4><p>Несколько связанных бизнес-направлений работали с пересекающимися продуктами и рынками. Требовалось найти модель, которая учитывала бы различия между типами покупателей и каналами продаж.</p></div><div class="case-part"><h4>Что было разработано</h4><p>Альтернативная организационная модель, объединяющая направления в единую структуру с отдельными командами под маркетплейсы, B2B, крупных корпоративных заказчиков и сети. Для модели были проработаны роли, зоны ответственности и финансовая логика.</p></div><div class="case-result status-result"><span>Статус проекта</span><p>Проектирование модели выполнено. До внедрения дело не дошло, поэтому кейс показывает опыт разработки организационного решения, а не доказанный эффект его реализации.</p></div></div>
+          <div class="case-aside">
+            <span class="case-index">Кейс 03</span>
+            <div class="case-tags"><span>Оргдизайн</span><span>Каналы продаж</span><span>Финансовая модель</span></div>
+            <div class="case-visual" aria-hidden="true">
+              <svg class="dgm" viewBox="0 0 360 235" role="img">
+                <g class="dgm-lines">
+                  <path d="M180 58v42M60 100h240M60 100v30M180 100v30M300 100v30"/>
+                </g>
+                <g class="dgm-box dgm-box-accent">
+                  <rect x="112" y="16" width="136" height="42" rx="3"/>
+                  <text x="180" y="41" text-anchor="middle" class="dgm-strong">Единая модель</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="8" y="130" width="104" height="56" rx="3"/>
+                  <text x="60" y="162" text-anchor="middle" class="dgm-strong">Маркетплейсы</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="128" y="130" width="104" height="56" rx="3"/>
+                  <text x="180" y="162" text-anchor="middle" class="dgm-strong">B2B</text>
+                </g>
+                <g class="dgm-box">
+                  <rect x="248" y="130" width="104" height="56" rx="3"/>
+                  <text x="300" y="153" text-anchor="middle" class="dgm-strong">Корпоративные</text>
+                  <text x="300" y="170" text-anchor="middle" class="dgm-sub">клиенты и сети</text>
+                </g>
+              </svg>
+              <p>Общие принципы — специализированные команды под каждый канал</p>
+            </div>
+          </div>
+          <div class="case-body">
+            <h3>Пересобрать структуру вокруг клиентов и каналов продаж</h3>
+            <div class="case-part"><h4>Исходная ситуация</h4><p>Несколько связанных бизнес-направлений работали с пересекающимися продуктами и рынками. Требовалось найти модель, которая учитывала бы различия между типами покупателей и каналами продаж.</p></div>
+            <div class="case-part"><h4>Что было разработано</h4><p>Альтернативная организационная модель, объединяющая направления в единую структуру с отдельными командами под маркетплейсы, B2B, крупных корпоративных заказчиков и сети. Для модели были проработаны роли, зоны ответственности и финансовая логика.</p></div>
+            <div class="case-result status-result"><span>Статус проекта</span><p>Проектирование модели выполнено. До внедрения дело не дошло, поэтому кейс показывает опыт разработки организационного решения, а не доказанный эффект его реализации.</p></div>
+          </div>
         </article>
+
         <p class="case-footnote reveal">Состав и статус кейсов отражают предоставленные материалы. Показатели и детали проектов необходимо окончательно согласовать перед публикацией.</p>
       </div>
     </section>
 
+    <!-- ============ 05 / ОБО МНЕ ============ -->
     <section class="section about" id="about">
       <div class="section-wrap about-grid">
-        <div class="about-left reveal"><p class="section-kicker">05 / Обо мне</p><h2>Бизнес-архитектор с управленческим и системным взглядом</h2><span class="gold-rule"></span><p class="about-quote">«Соединять цели компании, людей, процессы, инструменты и экономику — в целостное решение».</p></div>
-        <div class="about-right reveal"><p class="lead">Мой профессиональный путь объединяет управление бизнесом, развитие компаний, проектирование процессов и обучение людей.</p><p>Я работала на управленческих позициях, занималась антикризисным управлением, развитием региональных филиалов, коммерческой политикой, изменениями в организации и корпоративным обучением. Этот опыт помогает мне смотреть на задачу не изолированно, а с учётом того, как решение повлияет на другие части бизнеса.</p><p>Моя сильная сторона — не просто предложить идею, а выстроить логику решения, которую можно объяснить, согласовать и передать в работу.</p><div class="credentials"><div class="credential"><span class="credential-number">15+</span><div><h3>лет управленческого опыта</h3><p>Коммерческое управление и развитие бизнеса, в том числе в компаниях «Дера» и «Сурская мебель».</p></div></div><div class="credential"><span class="credential-icon">MBA</span><div><h3>Executive MBA, Сколково</h3><p>Программа обучения в 2025–2026 годах. Также указаны стажировки в Shanghai University и HK Business School.</p></div></div><div class="credential"><span class="credential-icon"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M6 8h30v24H6zM12 15h18M12 21h18M12 27h11"/></svg></span><div><h3>Опыт преподавания</h3><p>Восемь лет преподавания в вузе и опыт разработки учебных программ.</p></div></div></div></div>
+        <div class="about-left reveal">
+          <p class="section-kicker">05 / Обо мне</p>
+          <h2>Бизнес-архитектор с управленческим и системным взглядом</h2>
+          <span class="gold-rule" aria-hidden="true"></span>
+          <p class="about-quote">«Соединять цели компании, людей, процессы, инструменты и экономику — в целостное решение».</p>
+        </div>
+        <div class="about-right reveal">
+          <p class="lead">Мой профессиональный путь объединяет управление бизнесом, развитие компаний, проектирование процессов и обучение людей.</p>
+          <p>Я работала на управленческих позициях, занималась антикризисным управлением, развитием региональных филиалов, коммерческой политикой, изменениями в организации и корпоративным обучением. Этот опыт помогает мне смотреть на задачу не изолированно, а с учётом того, как решение повлияет на другие части бизнеса.</p>
+          <p>Моя сильная сторона — не просто предложить идею, а выстроить логику решения, которую можно объяснить, согласовать и передать в работу.</p>
+          <div class="credentials">
+            <div class="credential">
+              <span class="credential-number">15+</span>
+              <div><h3>лет управленческого опыта</h3><p>Коммерческое управление и развитие бизнеса, в том числе в компаниях «Дера» и «Сурская мебель».</p></div>
+            </div>
+            <div class="credential">
+              <span class="credential-icon">MBA</span>
+              <div><h3>Executive MBA, Сколково</h3><p>Программа обучения в 2025–2026 годах. Также указаны стажировки в Shanghai University и HK Business School.</p></div>
+            </div>
+            <div class="credential">
+              <span class="credential-icon"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M6 8h30v24H6zM12 15h18M12 21h18M12 27h11"/></svg></span>
+              <div><h3>Опыт преподавания</h3><p>Восемь лет преподавания в вузе и опыт разработки учебных программ.</p></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- ============ 06 / КОНТАКТ ============ -->
     <section class="contact-section" id="contact">
-      <div class="contact-orbit orbit-left" aria-hidden="true"></div><div class="contact-orbit orbit-right" aria-hidden="true"></div>
+      <div class="contact-orbit orbit-left" aria-hidden="true"></div>
+      <div class="contact-orbit orbit-right" aria-hidden="true"></div>
       <div class="section-wrap contact-grid">
-        <div class="contact-copy reveal"><p class="section-kicker">06 / Следующий шаг</p><h2>Есть задача,<br><em>в которой нужно разобраться?</em></h2><p>Необязательно приходить с готовым техническим заданием. Можно начать с описания ситуации: что происходит, что хочется изменить и что пока непонятно.</p><p>Вместе определим, какой формат работы будет уместен: диагностика, проектирование решения или другой следующий шаг.</p><div class="contact-signature"><span></span><small>Начнём с разговора о задаче</small></div></div>
+        <div class="contact-copy reveal">
+          <p class="section-kicker">06 / Следующий шаг</p>
+          <h2>Есть задача,<br><em>в которой нужно разобраться?</em></h2>
+          <p>Необязательно приходить с готовым техническим заданием. Можно начать с описания ситуации: что происходит, что хочется изменить и что пока непонятно.</p>
+          <p>Вместе определим, какой формат работы будет уместен: диагностика, проектирование решения или другой следующий шаг.</p>
+          <div class="contact-signature"><span aria-hidden="true"></span><small>Начнём с разговора о задаче</small></div>
+        </div>
         <form class="contact-form reveal" id="contact-form" novalidate>
-          <!-- Поля связаны с сообщениями ошибок через aria-describedby для доступности. -->
           <label for="name">Как к вам обращаться?</label>
           <input id="name" name="name" autocomplete="name" placeholder="Ваше имя" maxlength="80" required aria-describedby="name-error">
           <small class="field-error" id="name-error" aria-live="polite"></small>
@@ -192,9 +376,14 @@
     </section>
 
     <footer class="footer">
-      <div class="section-wrap footer-inner"><a class="footer-mark" href="#top">БА<span>.</span></a><span>Бизнес-архитектор</span><a href="#top" class="back-top">Наверх ↑</a><small>© <span id="year"></span> · Стратегия. Система. Результат.</small></div>
+      <div class="section-wrap footer-inner">
+        <a class="footer-mark" href="#top">БА<span>.</span></a>
+        <span>Бизнес-архитектор</span>
+        <a href="#top" class="back-top">Наверх ↑</a>
+        <small>© <span id="year"></span> · Стратегия. Система. Результат.</small>
+      </div>
     </footer>
   </main>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
