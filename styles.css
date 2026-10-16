@@ -13,3 +13,257 @@
 @media(max-width:800px){.hero{display:flex;flex-direction:column;height:auto;max-height:none;min-height:0;overflow:hidden}.hero-portrait{height:44svh;min-height:300px;max-height:450px;flex:none}.hero-portrait>img{object-position:50% 42%}.portrait-line{height:220px;width:165px}.hero-panel{padding:22px var(--pad) 18px}.hero-header{min-height:26px}.wordmark{display:block;margin-right:auto}.menu-toggle{display:flex;flex-direction:column;gap:5px;order:3;border:0;background:transparent;padding:10px 0 10px 10px;cursor:pointer}.menu-toggle span{display:block;width:23px;height:1px;background:var(--green);transition:transform .2s}.menu-toggle[aria-expanded=true] span:first-child{transform:translateY(3px) rotate(45deg)}.menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-3px) rotate(-45deg)}.top-nav{display:none;position:absolute;right:0;top:45px;background:var(--white);border:1px solid var(--line);padding:15px 18px;flex-direction:column;align-items:flex-start;gap:12px;box-shadow:0 12px 30px #252e2512}.top-nav.open{display:flex}.top-nav i{display:none}.top-nav a.active:after{bottom:-3px}.hero-content{padding:35px 0 0;margin:0}.eyebrow{font-size:25px}.hero h1{font-size:clamp(29px,6vw,43px);max-width:650px}.hero-description{font-size:15px;max-width:600px;margin:16px 0 21px}.hero-facts{grid-template-columns:repeat(4,minmax(0,1fr));padding:18px 0 19px;min-height:unset}.fact{font-size:10px;padding:0 11px;gap:7px}.experience strong{font-size:clamp(23px,4vw,30px)}.icon-circle{width:42px;height:42px}.hero-education{min-height:65px;gap:9px;padding:8px 0 0;font-size:10px}.hero-education svg{width:30px}.hero-bottom-line{height:19%;width:48%;opacity:.75}.section{padding:76px 0}.approach-grid,.process-layout,.about-grid{grid-template-columns:1fr;gap:35px}.section-intro h2{max-width:620px}.approach-copy{max-width:none}.situations{margin-top:28px}.section-heading{margin-bottom:35px}.service-grid{grid-template-columns:1fr}.service-card{padding:27px}.service-card h3{font-size:22px;max-width:420px}.service-card>p,.deliverable p{font-size:13px}.process-intro{position:static}.principle{margin-top:27px}.timeline-step{padding-bottom:28px}.cases-heading{display:block}.cases-heading .section-deck{margin-top:20px}.case{grid-template-columns:1fr;gap:26px;padding:34px 0}.case-aside{display:grid;grid-template-columns:1fr;max-width:520px}.org-visual,.learning-visual,.channels-visual{max-width:460px;margin-top:22px}.case-body h3{margin-bottom:23px}.case-metrics{max-width:460px}.case-part p,.case-result p{font-size:13px}.about-quote{margin-top:28px}.contact-grid{grid-template-columns:1fr;gap:42px}.contact-form{max-width:600px}.footer-inner{flex-wrap:wrap;gap:14px}.footer-inner>small{width:100%;margin:0}.back-top{margin-left:auto}}
 @media(max-width:480px){body{font-size:13px}.hero-portrait{height:38svh;min-height:270px;max-height:340px}.hero-panel{padding:18px 21px 14px}.hero-content{padding-top:29px}.eyebrow{font-size:23px}.hero h1{font-size:29px;line-height:1.2}.hero-description{font-size:13px;line-height:1.65;margin:14px 0 18px}.hero-facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;padding:0;border-bottom:0}.fact{padding:17px 10px 17px 12px;border-top:1px solid var(--line);font-size:11px;min-height:103px}.fact:nth-child(odd){border-left:0;padding-left:0}.fact:first-child{border-top:1px solid var(--line)}.experience strong{font-size:30px}.icon-fact{display:grid;grid-template-columns:42px 1fr;align-items:center;column-gap:9px}.icon-circle{width:38px;height:38px;margin:0}.icon-circle svg{width:33px;height:33px}.icon-fact>span:last-child{align-self:center}.hero-education{font-size:9px;gap:7px;min-height:55px;padding-top:7px}.hero-education svg{width:25px;height:25px}.hero-education b{display:none}.hero-bottom-line{height:13%;width:48%;opacity:.55}.section{padding:62px 0}.section-wrap{width:calc(100% - 42px)}.section-kicker{margin-bottom:20px;font-size:9px}.section h2,.contact-section h2{font-size:31px}.approach-copy .lead{font-size:18px}.situation{grid-template-columns:27px 1fr;gap:10px}.situation p{font-size:12px}.section-heading{margin-bottom:28px}.section-deck{font-size:12px}.service-card{padding:23px 21px}.service-card h3{font-size:20px}.service-card>p,.deliverable p{font-size:12px}.pricing-note{line-height:1.7}.timeline:before{left:18px}.timeline-step{grid-template-columns:38px 1fr;gap:15px}.timeline-number{width:37px;height:37px;font-size:10px}.timeline-step h3{font-size:16px}.timeline-step p{font-size:12px}.principle p{font-size:17px}.case{padding:29px 0;gap:23px}.case-body h3{font-size:22px}.case-part p,.case-result p{font-size:12px}.case-result{padding:14px 15px}.case-tags span{font-size:8px}.org-visual{min-height:220px;padding-left:8px;padding-right:8px}.org-node{min-width:82px;padding:8px 8px;font-size:9px}.org-row{gap:8px}.case-metrics{gap:5px}.case-metrics strong{font-size:18px}.case-metrics span{font-size:8px}.channels-visual{height:230px}.channel-box{font-size:8px;padding:8px 4px}.about-grid{gap:25px}.about-quote{font-size:21px}.credential{grid-template-columns:61px 1fr;gap:13px;padding:18px 0}.credential-number{font-size:29px}.credential h3{font-size:13px}.credential p{font-size:10px}.contact-section{padding:65px 0}.contact-copy>p:not(.section-kicker){font-size:12px}.button-light{width:100%}.footer-inner{gap:11px}.footer-inner>span{font-size:9px}.footer-inner>small{font-size:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* === Доработки: единая ширина первого экрана, читаемость кейсов и удобная форма === */
+
+/* Первый экран использует тот же максимальный контейнер, что и остальные секции,
+   и не занимает всю высоту окна на больших экранах. */
+.hero {
+  width: min(var(--max), calc(100% - var(--pad) * 2));
+  height: clamp(620px, 86svh, 860px);
+  min-height: 620px;
+  max-height: 860px;
+  margin-inline: auto;
+}
+
+/* Схема распределения обращений: читаемые подписи и равномерные соединители. */
+.org-visual {
+  min-height: 250px;
+  padding: 28px 18px 20px;
+  gap: 0;
+}
+.org-node {
+  min-width: 104px;
+  padding: 11px 12px;
+  font-size: 11px;
+  line-height: 1.45;
+}
+.org-node.node-a {
+  min-width: 148px;
+  font-weight: 550;
+}
+.org-lines {
+  width: min(52%, 210px);
+  height: 27px;
+  margin-top: 13px;
+  border-top: 1px solid #c3b18a;
+}
+.org-lines::before {
+  top: -14px;
+  height: 14px;
+}
+.org-lines i {
+  height: 14px;
+}
+.org-row {
+  width: min(100%, 330px);
+  justify-content: center;
+  gap: clamp(8px, 2vw, 16px);
+}
+.org-row .org-node {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 165px;
+}
+.org-visual > p {
+  max-width: 100%;
+  margin-top: 22px;
+  font-size: 9px;
+  line-height: 1.6;
+  letter-spacing: .025em;
+}
+
+/* Обложка кейса 02 остаётся по центру; орбиты и метрики не вылезают за контейнер. */
+.learning-visual {
+  min-height: 225px;
+  height: clamp(225px, 21vw, 270px);
+  isolation: isolate;
+}
+.learning-cover {
+  width: clamp(145px, 13vw, 170px);
+  height: 174px;
+  padding: 19px 15px;
+}
+.learning-cover > span {
+  font-size: 25px;
+}
+.learning-cover small {
+  font-size: 8px;
+  line-height: 1.55;
+  letter-spacing: .09em;
+}
+.learning-orbit {
+  max-width: 86%;
+}
+.case-metrics {
+  gap: clamp(7px, 1vw, 12px);
+}
+.case-metrics > div {
+  min-width: 0;
+}
+.case-metrics strong {
+  font-size: clamp(20px, 1.8vw, 24px);
+}
+.case-metrics span {
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+/* Чуть увеличиваем второстепенный текст, не меняя размеры основных блоков. */
+.case-tags span {
+  font-size: 10px;
+  line-height: 1.5;
+}
+.case-part h4,
+.case-result > span {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.case-part p,
+.case-result p {
+  font-size: 13px;
+  line-height: 1.75;
+}
+.case-footnote {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.contact-copy > p:not(.section-kicker) {
+  font-size: 14px;
+  line-height: 1.75;
+}
+.contact-form label {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.contact-form input,
+.contact-form textarea {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.form-note {
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+/* Поле описания задачи имеет ограниченную высоту: его нельзя схлопнуть
+   ниже удобного размера или растянуть на весь экран. Длинный текст прокручивается внутри. */
+.contact-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 112px;
+  max-height: 190px;
+  height: 112px;
+  resize: vertical;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+}
+
+/* Валидация: заметный, но спокойный маркер ошибки и текст рядом с полем. */
+.contact-form .field-error {
+  display: block;
+  min-height: 0;
+  margin: -13px 0 15px;
+  color: #f0c8ba;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.contact-form .field-error:empty {
+  display: none;
+}
+.contact-form input.has-error,
+.contact-form textarea.has-error {
+  border-bottom-color: #e5a895;
+}
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: 2px solid rgba(208, 187, 141, .75);
+  outline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+  /* Мобильный экран совпадает по ширине с контентной колонкой остальных секций. */
+  .hero {
+    width: min(var(--max), calc(100% - var(--pad) * 2));
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  .org-visual,
+  .learning-visual {
+    max-width: 100%;
+  }
+  .org-visual {
+    min-height: 235px;
+  }
+  .case-tags span {
+    font-size: 10px;
+  }
+  .case-part p,
+  .case-result p {
+    font-size: 13px;
+  }
+  .contact-form textarea {
+    min-height: 112px;
+    max-height: 190px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    width: calc(100% - 42px);
+  }
+  .hero-portrait {
+    height: 38svh;
+    min-height: 270px;
+    max-height: 340px;
+  }
+  .org-visual {
+    min-height: 220px;
+    padding: 22px 9px 16px;
+  }
+  .org-node {
+    min-width: 0;
+    padding: 9px 7px;
+    font-size: 10px;
+  }
+  .org-node.node-a {
+    min-width: 130px;
+  }
+  .org-lines {
+    width: 52%;
+    height: 23px;
+    margin-top: 12px;
+  }
+  .org-lines i {
+    height: 12px;
+  }
+  .org-row {
+    gap: 8px;
+  }
+  .org-visual > p {
+    margin-top: 19px;
+    font-size: 9px;
+  }
+  .learning-visual {
+    height: 225px;
+  }
+  .learning-cover {
+    width: 145px;
+    height: 168px;
+  }
+  .case-metrics strong {
+    font-size: 19px;
+  }
+  .case-metrics span {
+    font-size: 9px;
+  }
+  .case-tags span {
+    font-size: 9px;
+  }
+  .contact-form textarea {
+    min-height: 112px;
+    max-height: 180px;
+  }
+}

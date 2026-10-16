@@ -171,12 +171,22 @@
       <div class="contact-orbit orbit-left" aria-hidden="true"></div><div class="contact-orbit orbit-right" aria-hidden="true"></div>
       <div class="section-wrap contact-grid">
         <div class="contact-copy reveal"><p class="section-kicker">06 / Следующий шаг</p><h2>Есть задача,<br><em>в которой нужно разобраться?</em></h2><p>Необязательно приходить с готовым техническим заданием. Можно начать с описания ситуации: что происходит, что хочется изменить и что пока непонятно.</p><p>Вместе определим, какой формат работы будет уместен: диагностика, проектирование решения или другой следующий шаг.</p><div class="contact-signature"><span></span><small>Начнём с разговора о задаче</small></div></div>
-        <form class="contact-form reveal" id="contact-form">
-          <label for="name">Как к вам обращаться?</label><input id="name" name="name" autocomplete="name" placeholder="Ваше имя" required>
-          <label for="contact-way">Куда ответить?</label><input id="contact-way" name="contact" autocomplete="email" placeholder="E-mail или Telegram" required>
-          <label for="message">Кратко о задаче</label><textarea id="message" name="message" rows="4" placeholder="Что происходит и что хочется изменить?" required></textarea>
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <!-- Поля связаны с сообщениями ошибок через aria-describedby для доступности. -->
+          <label for="name">Как к вам обращаться?</label>
+          <input id="name" name="name" autocomplete="name" placeholder="Ваше имя" maxlength="80" required aria-describedby="name-error">
+          <small class="field-error" id="name-error" aria-live="polite"></small>
+
+          <label for="contact-way">Куда ответить?</label>
+          <input id="contact-way" name="contact" autocomplete="email" placeholder="E-mail или Telegram (@username)" maxlength="120" required aria-describedby="contact-error">
+          <small class="field-error" id="contact-error" aria-live="polite"></small>
+
+          <label for="message">Кратко о задаче</label>
+          <textarea id="message" name="message" rows="4" minlength="10" maxlength="2000" placeholder="Что происходит и что хочется изменить? (от 10 символов)" required aria-describedby="message-error"></textarea>
+          <small class="field-error" id="message-error" aria-live="polite"></small>
+
           <button class="button button-light" type="submit">Обсудить задачу <span>↗</span></button>
-          <p class="form-note" id="form-note" role="status">Форма подготовлена для подключения к почте или CRM.</p>
+          <p class="form-note" id="form-note" role="status" aria-live="polite">Форма подготовлена для подключения к почте или CRM.</p>
         </form>
       </div>
     </section>
