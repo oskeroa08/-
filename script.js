@@ -46,6 +46,19 @@
     revealables.forEach((el) => el.classList.add('is-visible'));
   }
 
+  /* ---------- Закрепление шапки после первого экрана ---------- */
+  const siteHeader = document.getElementById('site-header');
+  const heroSection = document.getElementById('top');
+  if (siteHeader && heroSection) {
+    const updateHeader = () => {
+      const stuck = heroSection.getBoundingClientRect().bottom <= 56;
+      siteHeader.classList.toggle('is-stuck', stuck);
+    };
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader, { passive: true });
+    updateHeader();
+  }
+
   /* ---------- Подсветка раздела в навигации (scrollspy) ---------- */
   const spyLinks = Array.from(document.querySelectorAll('.top-nav a[data-spy]'));
   const spyTargets = spyLinks
