@@ -6,6 +6,9 @@
   // Перед публикацией укажите адрес для приёма заявок,
   // например: const CONTACT_EMAIL = 'hello@yourdomain.ru';
   const CONTACT_EMAIL = '';
+  // Ссылка на личный профиль или чат в мессенджере MAX (необязательно),
+  // например: const CONTACT_MAX_URL = 'https://max.ru/...';
+  const CONTACT_MAX_URL = '';
 
   /* ---------- Мобильное меню ---------- */
   const menuToggle = document.querySelector('.menu-toggle');
@@ -87,6 +90,26 @@
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  /* ---------- Прямые контакты (показываются, только если заданы выше) ---------- */
+  const directBlock = document.getElementById('direct-contact');
+  const directMail = document.getElementById('direct-mail');
+  const directMax = document.getElementById('direct-max');
+  const directSep = document.getElementById('direct-sep');
+  if (directBlock) {
+    const hasMail = Boolean(CONTACT_EMAIL.trim());
+    const hasMax = Boolean(CONTACT_MAX_URL.trim());
+    if (hasMail && directMail) {
+      directMail.href = `mailto:${CONTACT_EMAIL.trim()}`;
+      directMail.hidden = false;
+    }
+    if (hasMax && directMax) {
+      directMax.href = CONTACT_MAX_URL.trim();
+      directMax.hidden = false;
+    }
+    if (directSep) directSep.hidden = !(hasMail && hasMax);
+    directBlock.hidden = !(hasMail || hasMax);
+  }
+
   /* ---------- Форма обращения ---------- */
   const contactForm = document.getElementById('contact-form');
   const formNote = document.getElementById('form-note');
@@ -109,13 +132,15 @@
   };
   const fieldNames = Object.keys(fields);
 
-  // E-mail, Telegram-username или ссылка t.me.
+  // E-mail, Telegram-username, ссылка t.me / max.ru или телефон.
   const isValidReplyTo = (value) => {
     const trimmed = value.trim();
     return (
       /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(trimmed) ||
       /^@?[a-zA-Z0-9_]{5,32}$/.test(trimmed) ||
-      /^(https?:\/\/)?(www\.)?t\.me\/[a-zA-Z0-9_]{5,32}\/?$/i.test(trimmed)
+      /^(https?:\/\/)?(www\.)?t\.me\/[a-zA-Z0-9_]{5,32}\/?$/i.test(trimmed) ||
+      /^(https?:\/\/)?(www\.)?max\.ru\/\S+$/i.test(trimmed) ||
+      (/^\+?[\d\s()\-]{10,20}$/.test(trimmed) && trimmed.replace(/\D/g, '').length >= 10)
     );
   };
 
@@ -135,7 +160,7 @@
     } else if (fieldName === 'name' && value.length < 2) {
       error = 'Укажите имя (минимум 2 символа).';
     } else if (fieldName === 'contact' && !isValidReplyTo(value)) {
-      error = 'Укажите корректный e-mail или Telegram username (например, @username).';
+      error = 'Укажите e-mail, Telegram (@username), ссылку на MAX или телефон.';
     } else if (fieldName === 'message' && value.length < 10) {
       error = 'Опишите задачу чуть подробнее — минимум 10 символов.';
     } else if (fieldName === 'message' && value.length > 2000) {
